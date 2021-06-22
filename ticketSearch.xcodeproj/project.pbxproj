@@ -7,28 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52297022267FCB76002B2765 /* PlaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52297021267FCB76002B2765 /* PlaceView.m */; };
+		52297029267FCBD8002B2765 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52297028267FCBD8002B2765 /* PlaceViewController.m */; };
 		52384333267F396400216B81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52384332267F396400216B81 /* AppDelegate.m */; };
 		52384336267F396400216B81 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52384335267F396400216B81 /* SceneDelegate.m */; };
-		52384339267F396400216B81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52384338267F396400216B81 /* ViewController.m */; };
-		5238433C267F396400216B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5238433A267F396400216B81 /* Main.storyboard */; };
+		52384339267F396400216B81 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52384338267F396400216B81 /* MainViewController.m */; };
 		5238433E267F396500216B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5238433D267F396500216B81 /* Assets.xcassets */; };
 		52384341267F396500216B81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5238433F267F396500216B81 /* LaunchScreen.storyboard */; };
 		52384344267F396500216B81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52384343267F396500216B81 /* main.m */; };
+		5238435D267F7EAB00216B81 /* AppStartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5238435C267F7EAB00216B81 /* AppStartManager.m */; };
+		5242AEF62681042C000458F9 /* MainViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AEF52681042C000458F9 /* MainViewPresenter.m */; };
+		5242AEFB2681193C000458F9 /* MainViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AEFA2681193C000458F9 /* MainViewBuilder.m */; };
+		5242AEFF26812689000458F9 /* PlaceViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AEFE26812689000458F9 /* PlaceViewBuilder.m */; };
+		5242AF042681271A000458F9 /* PlaceViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AF032681271A000458F9 /* PlaceViewPresenter.m */; };
+		52B21972267FAB83005EB7A1 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B21971267FAB83005EB7A1 /* MainView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52297020267FCB76002B2765 /* PlaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceView.h; sourceTree = "<group>"; };
+		52297021267FCB76002B2765 /* PlaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceView.m; sourceTree = "<group>"; };
+		52297027267FCBD8002B2765 /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		52297028267FCBD8002B2765 /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		5238432E267F396400216B81 /* ticketSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticketSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52384331267F396400216B81 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52384332267F396400216B81 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		52384334267F396400216B81 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		52384335267F396400216B81 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		52384337267F396400216B81 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		52384338267F396400216B81 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5238433B267F396400216B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52384337267F396400216B81 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		52384338267F396400216B81 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		5238433D267F396500216B81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52384340267F396500216B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52384342267F396500216B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52384343267F396500216B81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5238435B267F7EAB00216B81 /* AppStartManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStartManager.h; sourceTree = "<group>"; };
+		5238435C267F7EAB00216B81 /* AppStartManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStartManager.m; sourceTree = "<group>"; };
+		5242AEF42681042C000458F9 /* MainViewPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewPresenter.h; sourceTree = "<group>"; };
+		5242AEF52681042C000458F9 /* MainViewPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewPresenter.m; sourceTree = "<group>"; };
+		5242AEF92681193C000458F9 /* MainViewBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewBuilder.h; sourceTree = "<group>"; };
+		5242AEFA2681193C000458F9 /* MainViewBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewBuilder.m; sourceTree = "<group>"; };
+		5242AEFD26812689000458F9 /* PlaceViewBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewBuilder.h; sourceTree = "<group>"; };
+		5242AEFE26812689000458F9 /* PlaceViewBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewBuilder.m; sourceTree = "<group>"; };
+		5242AF022681271A000458F9 /* PlaceViewPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewPresenter.h; sourceTree = "<group>"; };
+		5242AF032681271A000458F9 /* PlaceViewPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewPresenter.m; sourceTree = "<group>"; };
+		52B21970267FAB83005EB7A1 /* MainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
+		52B21971267FAB83005EB7A1 /* MainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +64,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52297024267FCB7D002B2765 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5229702C267FCBDE002B2765 /* Controller */,
+				52297020267FCB76002B2765 /* PlaceView.h */,
+				52297021267FCB76002B2765 /* PlaceView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52297025267FCB8F002B2765 /* PlaceScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5242AEF22680D89D000458F9 /* Builder */,
+				5242AF01268126F6000458F9 /* Presenter */,
+				52297024267FCB7D002B2765 /* View */,
+			);
+			path = PlaceScreen;
+			sourceTree = "<group>";
+		};
+		5229702C267FCBDE002B2765 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52297027267FCBD8002B2765 /* PlaceViewController.h */,
+				52297028267FCBD8002B2765 /* PlaceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		52384325267F396400216B81 = {
 			isa = PBXGroup;
 			children = (
@@ -61,19 +112,117 @@
 		52384330267F396400216B81 /* ticketSearch */ = {
 			isa = PBXGroup;
 			children = (
+				5238434B267F5A4F00216B81 /* Core */,
+				52384350267F5C9400216B81 /* Resources */,
+				5238434D267F5A9500216B81 /* MainScreen */,
+				52297025267FCB8F002B2765 /* PlaceScreen */,
+			);
+			path = ticketSearch;
+			sourceTree = "<group>";
+		};
+		5238434B267F5A4F00216B81 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5238433F267F396500216B81 /* LaunchScreen.storyboard */,
+				52384342267F396500216B81 /* Info.plist */,
+				52384357267F6CAB00216B81 /* App */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5238434D267F5A9500216B81 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				52B21974267FABBC005EB7A1 /* Builder */,
+				5242AEF32680D8A9000458F9 /* Presenter */,
+				52B21975267FB87C005EB7A1 /* View */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		52384350267F5C9400216B81 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5238433D267F396500216B81 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		52384357267F6CAB00216B81 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5238435A267F7E8900216B81 /* AppStartManager */,
+				52384343267F396500216B81 /* main.m */,
 				52384331267F396400216B81 /* AppDelegate.h */,
 				52384332267F396400216B81 /* AppDelegate.m */,
 				52384334267F396400216B81 /* SceneDelegate.h */,
 				52384335267F396400216B81 /* SceneDelegate.m */,
-				52384337267F396400216B81 /* ViewController.h */,
-				52384338267F396400216B81 /* ViewController.m */,
-				5238433A267F396400216B81 /* Main.storyboard */,
-				5238433D267F396500216B81 /* Assets.xcassets */,
-				5238433F267F396500216B81 /* LaunchScreen.storyboard */,
-				52384342267F396500216B81 /* Info.plist */,
-				52384343267F396500216B81 /* main.m */,
 			);
-			path = ticketSearch;
+			path = App;
+			sourceTree = "<group>";
+		};
+		5238435A267F7E8900216B81 /* AppStartManager */ = {
+			isa = PBXGroup;
+			children = (
+				5238435B267F7EAB00216B81 /* AppStartManager.h */,
+				5238435C267F7EAB00216B81 /* AppStartManager.m */,
+			);
+			path = AppStartManager;
+			sourceTree = "<group>";
+		};
+		5242AEF22680D89D000458F9 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				5242AEFD26812689000458F9 /* PlaceViewBuilder.h */,
+				5242AEFE26812689000458F9 /* PlaceViewBuilder.m */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		5242AEF32680D8A9000458F9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5242AEF42681042C000458F9 /* MainViewPresenter.h */,
+				5242AEF52681042C000458F9 /* MainViewPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5242AF01268126F6000458F9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5242AF022681271A000458F9 /* PlaceViewPresenter.h */,
+				5242AF032681271A000458F9 /* PlaceViewPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		52B2196F267FAB19005EB7A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52384337267F396400216B81 /* MainViewController.h */,
+				52384338267F396400216B81 /* MainViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		52B21974267FABBC005EB7A1 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				5242AEF92681193C000458F9 /* MainViewBuilder.h */,
+				5242AEFA2681193C000458F9 /* MainViewBuilder.m */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		52B21975267FB87C005EB7A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52B2196F267FAB19005EB7A1 /* Controller */,
+				52B21970267FAB83005EB7A1 /* MainView.h */,
+				52B21971267FAB83005EB7A1 /* MainView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +283,6 @@
 			files = (
 				52384341267F396500216B81 /* LaunchScreen.storyboard in Resources */,
 				5238433E267F396500216B81 /* Assets.xcassets in Resources */,
-				5238433C267F396400216B81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,24 +293,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52384339267F396400216B81 /* ViewController.m in Sources */,
+				52297022267FCB76002B2765 /* PlaceView.m in Sources */,
+				52384339267F396400216B81 /* MainViewController.m in Sources */,
 				52384333267F396400216B81 /* AppDelegate.m in Sources */,
 				52384344267F396500216B81 /* main.m in Sources */,
+				52297029267FCBD8002B2765 /* PlaceViewController.m in Sources */,
+				5242AEFF26812689000458F9 /* PlaceViewBuilder.m in Sources */,
 				52384336267F396400216B81 /* SceneDelegate.m in Sources */,
+				5242AEF62681042C000458F9 /* MainViewPresenter.m in Sources */,
+				5242AEFB2681193C000458F9 /* MainViewBuilder.m in Sources */,
+				5238435D267F7EAB00216B81 /* AppStartManager.m in Sources */,
+				52B21972267FAB83005EB7A1 /* MainView.m in Sources */,
+				5242AF042681271A000458F9 /* PlaceViewPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5238433A267F396400216B81 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5238433B267F396400216B81 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5238433F267F396500216B81 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -177,7 +325,7 @@
 		52384345267F396500216B81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -236,7 +384,7 @@
 		52384346267F396500216B81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -292,7 +440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ticketSearch/Info.plist;
+				INFOPLIST_FILE = ticketSearch/Core/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,7 +457,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ticketSearch/Info.plist;
+				INFOPLIST_FILE = ticketSearch/Core/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
