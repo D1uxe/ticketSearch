@@ -6,17 +6,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlaceViewController.h"
 
 
 // Протокол связи Presenter-to-View
 @protocol MainViewInput <NSObject>
+
+-(void)setTitleForButton:(NSString *_Nonnull)placeTitle withPlaceType:(PlaceType)placeType;
 
 @end
 
 // Протокол связи View-to-Presenter
 @protocol MainViewOutput <NSObject>
 
--(void)viewDidTapButton;
+-(void)viewDidTapButtonWithType:(PlaceType)placeType;
+-(void)viewRequestData;
+-(void)setPlace:(id _Nonnull )place withType:(PlaceType)placeType;
+
 
 @end
 

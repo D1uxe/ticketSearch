@@ -10,10 +10,11 @@
 
 @implementation PlaceViewBuilder
 
-+(UIViewController<PlaceViewInput>*)build {
++(UIViewController<PlaceViewInput>*)buildWith:(PlaceType)placeType withPresenter:(id<MainViewOutput>)mainPresenter {
+//+(UIViewController<PlaceViewInput>*)build {
 
-	PlaceViewPresenter *presenter = [PlaceViewPresenter new];
-	PlaceViewController *viewController = [[PlaceViewController alloc] initWithPresenter:presenter];
+	PlaceViewPresenter *presenter = [[PlaceViewPresenter alloc] initWithPresenter:mainPresenter];
+	PlaceViewController *viewController = [[PlaceViewController alloc] initWithPresenter:presenter with:placeType];
 	presenter.viewInput = viewController;
 
 	return viewController;

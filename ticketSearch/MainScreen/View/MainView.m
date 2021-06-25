@@ -9,9 +9,8 @@
 
 @implementation MainView
 
+- (instancetype)init {
 
-- (instancetype)init
-{
 	self = [super init];
 	if (self) {
 		
@@ -33,7 +32,10 @@
 	[_departureButton setTitle:@"Откуда" forState:UIControlStateNormal];
 	_departureButton.tintColor = UIColor.blackColor;
 	_departureButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
-	_departureButton.frame = CGRectMake(30.0, 140.0, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
+	_departureButton.frame = CGRectMake(30.0,
+										140.0,
+										[UIScreen mainScreen].bounds.size.width - 60.0,
+										60.0);
 	
 	[self addSubview:_departureButton];
 }
@@ -48,8 +50,8 @@
 									  CGRectGetMaxY(_departureButton.frame) + 20.0,
 									  [UIScreen mainScreen].bounds.size.width - 60.0,
 									  60.0);
-	[self addSubview:_arrivalButton];
 
+	[self addSubview:_arrivalButton];
 }
 
 @end

@@ -9,8 +9,8 @@
 
 @implementation PlaceView
 
-- (instancetype)init
-{
+- (instancetype)init {
+
 	self = [super init];
 	if (self) {
 
@@ -22,6 +22,22 @@
 -(void)configureUI {
 
 	self.backgroundColor = UIColor.whiteColor;
+	[self addTable];
+	[self configureSegmentedControl];
+}
+
+-(void)addTable {
+
+	_tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+
+	[self addSubview:_tableView];
+}
+
+-(void)configureSegmentedControl {
+
+	_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Города", @"Аэропорты"]];
+	//_segmentedControl.backgroundColor = UIColor.blackColor;
+	_segmentedControl.selectedSegmentIndex = 0;
 }
 
 @end

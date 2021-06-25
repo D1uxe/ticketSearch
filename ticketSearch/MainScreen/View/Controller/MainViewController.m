@@ -7,8 +7,8 @@
 
 #import "MainViewController.h"
 #import "MainView.h"
-#import "PlaceViewController.h"
 
+@class PlaceViewController;
 
 @interface MainViewController ()
 
@@ -18,9 +18,9 @@
 
 @implementation MainViewController
 
-//MARK: Initialisers
+//MARK: - Initialisers
 
-- (instancetype)initWithPresenter:(MainViewPresenter *)presenter
+- (instancetype)initWithPresenter:(id<MainViewOutput>)presenter
 {
 	self = [super init];
 	if (self) {
@@ -29,7 +29,7 @@
 	return self;
 }
 
-//MARK: Private properties
+//MARK: - Private properties
 
 -(MainView*) mainView {
 
@@ -44,6 +44,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
+	[_presenter viewRequestData];
+
 	self.title = @"Поиск";
 
 	_mainView = (MainView*) self.view;
@@ -57,12 +59,24 @@
 	self.view = [MainView new];
 }
 
-//MARK: Private methods
+//MARK: - Private methods
 
 - (void)placeButtonDidTap:(UIButton *)sender {
 
-	[self.presenter viewDidTapButton];
+	PlaceType placeType = [sender isEqual:_mainView.departureButton] ? PlaceTypeDeparture : PlaceTypeArrival;
+
+	[self.presenter viewDidTapButtonWithType:placeType];
 }
 
+
+
+//MARK: - ViewInput protocol
+
+- (void)setTitleForButton:(NSString *)placeTitle withPlaceType:(PlaceType)placeType {
+
+	UIButton *button = (placeType == PlaceTypeDeparture) ? _mainView.departureButton : _mainView.arrivalButton;
+
+	[button setTitle:placeTitle forState:UIControlStateNormal];
+}
 
 @end
