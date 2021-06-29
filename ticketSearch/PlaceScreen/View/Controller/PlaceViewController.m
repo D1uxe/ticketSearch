@@ -32,8 +32,8 @@
 
 //MARK: - Initialisers
 
-- (instancetype)initWithPresenter:(id<PlaceViewOutput>)presenter with:(PlaceType)placeType
-{
+- (instancetype)initWithPresenter:(id<PlaceViewOutput>)presenter with:(PlaceType)placeType {
+
 	self = [super init];
 	if (self) {
 		_presenter = presenter;
@@ -75,7 +75,7 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-	return [currentSourceArray count];
+	return currentSourceArray.count;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -89,13 +89,13 @@
 	if (_placeView.segmentedControl.selectedSegmentIndex == 0) {
 		City *city = [currentSourceArray objectAtIndex:indexPath.row];
 
-		[((PlaceTableViewCell*)cell) configureWith:[CellModelFactory makeCellModelFromCity:city]];
+		[((PlaceTableViewCell*)cell) configureWith:[PlaceCellModelFactory makeCellModelFromCity:city]];
 
 	}
 	else if (_placeView.segmentedControl.selectedSegmentIndex == 1) {
 		Airport *airport = [currentSourceArray objectAtIndex:indexPath.row];
 
-		[((PlaceTableViewCell*)cell) configureWith:[CellModelFactory makeCellModelFromAirport:airport]];
+		[((PlaceTableViewCell*)cell) configureWith:[PlaceCellModelFactory makeCellModelFromAirport:airport]];
 
 	}
 

@@ -31,9 +31,10 @@
 
 //MARK: - Private properties
 
+// Странно почему геттер не срабатывает??
 -(MainView*) mainView {
 
-	// Странно почему геттер не срабатывает??
+
 
 	return (MainView*) self.view;
 }
@@ -44,15 +45,15 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	[_presenter viewRequestData];
-
 	self.title = @"Поиск";
 
 	_mainView = (MainView*) self.view;
 
+	[_presenter viewRequestData];
+
 	[_mainView.departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 	[_mainView.arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
-
+	[_mainView.searchButton addTarget:self action:@selector(searchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)loadView {
@@ -68,7 +69,11 @@
 	[self.presenter viewDidTapButtonWithType:placeType];
 }
 
+- (void)searchButtonDidTap:(UIButton *)sender {
 
+	[self.presenter viewDidTapSearchButton];
+	
+}
 
 //MARK: - ViewInput protocol
 
@@ -77,6 +82,22 @@
 	UIButton *button = (placeType == PlaceTypeDeparture) ? _mainView.departureButton : _mainView.arrivalButton;
 
 	[button setTitle:placeTitle forState:UIControlStateNormal];
+}
+
+- (void)showActivityIndicator:(BOOL)show {
+
+	show ? [_mainView.activityIndicator startAnimating] : [_mainView.activityIndicator stopAnimating];
+}
+
+- (void)showAlert {
+
+	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!"
+																			 message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];
+	[alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть"
+														style:(UIAlertActionStyleDefault)
+													  handler:nil]];
+
+	[self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

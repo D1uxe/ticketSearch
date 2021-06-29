@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CellModelFactory.h"
+#import "PlaceCellModelFactory.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

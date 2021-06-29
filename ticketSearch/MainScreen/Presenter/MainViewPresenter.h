@@ -13,6 +13,8 @@
 @protocol MainViewInput <NSObject>
 
 -(void)setTitleForButton:(NSString *_Nonnull)placeTitle withPlaceType:(PlaceType)placeType;
+-(void)showActivityIndicator:(BOOL)show;
+-(void)showAlert;
 
 @end
 
@@ -20,6 +22,7 @@
 @protocol MainViewOutput <NSObject>
 
 -(void)viewDidTapButtonWithType:(PlaceType)placeType;
+-(void)viewDidTapSearchButton;
 -(void)viewRequestData;
 -(void)setPlace:(id _Nonnull )place withType:(PlaceType)placeType;
 

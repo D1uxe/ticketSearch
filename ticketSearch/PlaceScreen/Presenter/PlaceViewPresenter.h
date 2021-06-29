@@ -32,6 +32,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PlaceViewPresenter : NSObject <PlaceViewOutput>
+
 @property(nonatomic)PlaceType place;
 @property(nonatomic, weak) UIViewController<PlaceViewInput> *viewInput;
 
