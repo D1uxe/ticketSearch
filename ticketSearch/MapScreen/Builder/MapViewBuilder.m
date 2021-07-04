@@ -6,7 +6,18 @@
 //
 
 #import "MapViewBuilder.h"
+#import "MapViewController.h"
+
 
 @implementation MapViewBuilder
+
++ (UIViewController *)build {
+
+	MapViewPresenter *presenter = [MapViewPresenter new];
+	MapViewController *viewController = [[MapViewController alloc] initWithPresenter:presenter];
+	presenter.viewInput = viewController;
+
+	return viewController;
+}
 
 @end

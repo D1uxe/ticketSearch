@@ -7,7 +7,6 @@
 
 #import "APIManager.h"
 #import "DataManager.h"
-#import "Ticket.h"
 
 #define API_TOKEN @"9cfb220fbf225dc196d63ea213925fc8"
 #define API_URL_FOR_IP_ADDRESS @"https://api.ipify.org/?format=json"
@@ -102,13 +101,13 @@
 			[[NSURLQueryItem alloc] initWithName:@"return_date" value:[dateFormatter stringFromDate:request.returnDate]]
 		];
 	}
-	NSLog(@"%@", urlConstructor.URL.absoluteString);
-	NSString *url = @"https://api.travelpayouts.com/v1/prices/cheap?origin=LED&destination=DME&token=9cfb220fbf225dc196d63ea213925fc8";
-	[self executeRequestForURL:url/*urlConstructor.URL.absoluteString*/ withCompletion:^(id _Nullable result) {
+
+	//	NSString *url = @"https://api.travelpayouts.com/v1/prices/cheap?origin=LED&destination=DME&token=9cfb220fbf225dc196d63ea213925fc8";
+	[self executeRequestForURL:urlConstructor.URL.absoluteString withCompletion:^(id _Nullable result) {
 
 		NSDictionary *response = result;
 		if (response) {
-			NSDictionary *json = [[response valueForKey:@"data"] valueForKey:@"MOW"];//request.destination];
+			NSDictionary *json = [[response valueForKey:@"data"] valueForKey:request.destination];
 			NSMutableArray *array = [NSMutableArray new];
 			for (NSString *key in json) {
 				NSDictionary *value = [json valueForKey: key];
@@ -119,6 +118,32 @@
 			}
 			dispatch_async(dispatch_get_main_queue(), ^{
 				completion(array);
+			});
+		}
+	}];
+}
+
+- (void)getMapPriceWithFor:(City *)origin withCompletion:(void (^)(NSArray * _Nonnull))completion {
+
+	static BOOL isLoading;
+
+	if (isLoading) { return; }
+	isLoading = YES;
+
+	NSString *fullUrl = [NSString stringWithFormat:@"%@%@",API_URL_FOR_MAP_PRICE, origin.code];
+
+	[self executeRequestForURL:fullUrl withCompletion:^(id result) {
+
+		NSArray *array = result;
+		NSMutableArray *prices = [NSMutableArray new];
+		if (array) {
+			for (NSDictionary *mapPriceDictionary in array) {
+				MapPrice *mapPrice = [[MapPrice alloc] initWithDictionary:mapPriceDictionary withOrigin:origin];
+				[prices addObject:mapPrice];
+			}
+			isLoading = NO;
+			dispatch_async(dispatch_get_main_queue(), ^{
+				completion(prices);
 			});
 		}
 	}];

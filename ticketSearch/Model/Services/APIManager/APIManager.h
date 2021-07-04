@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import "City.h"
+#import "Ticket.h"
+#import "MapPrice.h"
 #import "SearchRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getCityForCurrentIP:(void (^)(City *city))completion;
 - (void)getTicketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion;
+- (void)getMapPriceWithFor:(City *)origin withCompletion:(void (^)(NSArray * prices))completion;
 
 @end
 

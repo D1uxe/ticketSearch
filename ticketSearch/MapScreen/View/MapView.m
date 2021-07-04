@@ -9,12 +9,27 @@
 
 @implementation MapView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)init
+{
+	self = [super init];
+	if (self) {
+		
+		[self configureUI];
+	}
+	return self;
 }
-*/
+
+- (void)configureUI {
+
+	[self addMapView];
+}
+
+- (void)addMapView {
+
+	_mapView = [[MKMapView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+	_mapView.showsUserLocation = YES;
+
+	[self addSubview:_mapView];
+}
 
 @end

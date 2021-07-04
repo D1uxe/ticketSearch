@@ -33,9 +33,6 @@
 
 // Странно почему геттер не срабатывает??
 -(MainView*) mainView {
-
-
-
 	return (MainView*) self.view;
 }
 
@@ -54,6 +51,7 @@
 	[_mainView.departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 	[_mainView.arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 	[_mainView.searchButton addTarget:self action:@selector(searchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+	[_mainView.searchMapButton addTarget:self action:@selector(searchMapButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)loadView {
@@ -72,7 +70,11 @@
 - (void)searchButtonDidTap:(UIButton *)sender {
 
 	[self.presenter viewDidTapSearchButton];
-	
+}
+
+- (void)searchMapButtonDidTap:(UIButton *)sender {
+
+	[self.presenter viewDidTapSearchMapButton];
 }
 
 //MARK: - ViewInput protocol

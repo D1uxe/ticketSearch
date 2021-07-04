@@ -6,26 +6,57 @@
 //
 
 #import "MapViewController.h"
+#import "MapView.h"
 
 @interface MapViewController ()
+
+@property (nonatomic, strong) MapView *mapView;
 
 @end
 
 @implementation MapViewController
 
+//MARK: - Initialisers
+
+- (instancetype)initWithPresenter:(id<MapViewOutput>)presenter
+{
+	self = [super init];
+	if (self) {
+		_presenter = presenter;
+	}
+	return self;
+}
+
+//MARK: - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+	self.title = @"Карта цен";
+
+	_mapView = (MapView*) self.view;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)loadView {
+	self.view = [MapView new];
 }
-*/
+
+
+//MARK: - ViewInput protocol
+
+- (void)setMapRegion:(MKCoordinateRegion)region {
+
+	[_mapView.mapView setRegion:region animated:YES];
+}
+
+- (void)addMapAnnotation:(MKPointAnnotation *)annotation {
+
+	[_mapView.mapView addAnnotation:annotation];
+}
+
+- (void)removeMapAnnotation {
+
+	[_mapView.mapView removeAnnotations:_mapView.mapView.annotations];
+}
 
 @end

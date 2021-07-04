@@ -46,8 +46,15 @@
 NSDate *dateFromString(NSString *dateString) {
 	if (!dateString) { return  nil; }
 //	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	NSString *correctStringDate = [dateString stringByReplacingOccurrencesOfString:@"T" withString:@" "];
-	correctStringDate = [correctStringDate stringByReplacingOccurrencesOfString:@"+03:00" withString:@" "];
+	NSString *correctStringDate = [dateString stringByReplacingOccurrencesOfString:@"[TZ]"
+																		withString:@" "
+																		   options:NSRegularExpressionSearch
+																			 range:NSMakeRange(0, [dateString length])];
+
+	correctStringDate = [correctStringDate stringByReplacingOccurrencesOfString:@"\\+\\d+:\\d+"
+																	 withString:@""
+																		options:NSRegularExpressionSearch
+																		  range:NSMakeRange(0, [correctStringDate length])];
 //	dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
 	return [Ticket.dateFormatter dateFromString: correctStringDate];
 }
