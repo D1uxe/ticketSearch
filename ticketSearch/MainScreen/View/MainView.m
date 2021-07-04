@@ -36,7 +36,6 @@ static CGFloat const cornerRadius = 4.0;
 	[self addDepartureButton];
 	[self addArrivalButton];
 	[self addSearchButton];
-	[self addSearchMapButton];
 	[self addActivityIndicator];
 
 }
@@ -102,22 +101,6 @@ static CGFloat const cornerRadius = 4.0;
 									 60.0);
 
 	[self addSubview:_searchButton];
-}
-
--(void)addSearchMapButton {
-
-	_searchMapButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	[_searchMapButton setTitle:@"Найти на карте" forState:UIControlStateNormal];
-	_searchMapButton.tintColor = UIColor.whiteColor;
-	_searchMapButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.9];
-	_searchMapButton.titleLabel.font = [UIFont systemFontOfSize:20.0 weight:UIFontWeightBold];
-	_searchMapButton.layer.cornerRadius = cornerRadius + 2.0;
-	_searchMapButton.frame = CGRectMake(30.0,
-									 CGRectGetMaxY(_searchButton.frame) + 30.0,
-									 UIScreen.mainScreen.bounds.size.width - 60.0,
-									 60.0);
-
-	[self addSubview:_searchMapButton];
 }
 
 -(void)addActivityIndicator {

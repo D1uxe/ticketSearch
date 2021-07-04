@@ -35,6 +35,8 @@
 	self.title = @"Карта цен";
 
 	_mapView = (MapView*) self.view;
+
+	[_presenter viewRequestTickets];
 }
 
 - (void)loadView {

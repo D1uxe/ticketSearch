@@ -24,6 +24,7 @@
 	self.backgroundColor = UIColor.whiteColor;
 	[self addTable];
 	[self configureSegmentedControl];
+	[self configureSearchController];
 }
 
 -(void)addTable {
@@ -40,4 +41,12 @@
 	_segmentedControl.selectedSegmentIndex = 0;
 }
 
+-(void)configureSearchController {
+
+	_searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+	_searchController.obscuresBackgroundDuringPresentation = NO;
+	_searchController.searchBar.placeholder = @"Поиск";
+//	_searchController.definesPresentationContext = YES;
+
+}
 @end

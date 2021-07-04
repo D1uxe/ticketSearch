@@ -45,13 +45,6 @@
 	}];
 }
 
--(void)openMapView {
-
-	UIViewController *viewController = [MapViewBuilder build];
-	[self->_viewInput.navigationController pushViewController:viewController animated:YES];
-
-}
-
 -(void)requestData {
 
 	[_viewInput showActivityIndicator:YES];
@@ -93,11 +86,6 @@
 - (void)viewDidTapSearchButton {
 
 	[self openTicketView];
-}
-
-- (void)viewDidTapSearchMapButton {
-
-	[self openMapView];
 }
 
 - (void)viewRequestData {

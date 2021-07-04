@@ -23,7 +23,6 @@
 
 -(void)viewDidTapButtonWithType:(PlaceType)placeType;
 -(void)viewDidTapSearchButton;
--(void)viewDidTapSearchMapButton;
 -(void)viewRequestData;
 -(void)setPlace:(id _Nonnull )place withType:(PlaceType)placeType;
 

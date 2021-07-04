@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) UISearchController *searchController;
 
 - (instancetype)init;
 @end
