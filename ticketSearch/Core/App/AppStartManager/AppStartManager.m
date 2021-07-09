@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "MainViewBuilder.h"
 #import "MapViewBuilder.h"
-//#import "FavoriteViewBuilder"
+#import "TicketViewBuilder.h"
 
 @interface AppStartManager()
 
@@ -42,30 +42,38 @@
 
 	// 1-я вкладка TabBar
 	UIViewController *rootVC = [MainViewBuilder build];
-	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
-//	navigationController.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0];
-	navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Поиск" image:[UIImage systemImageNamed:@"magnifyingglass"] tag:0];
+	UINavigationController *mainNavigationController = makeNavigationControllerForRoot(rootVC);
 
-	navigationController.navigationBar.prefersLargeTitles = YES;
-	navigationController.navigationBar.barTintColor = UIColor.lightGrayColor;
-	navigationController.navigationBar.tintColor = UIColor.blackColor;
-	//navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor cyanColor]};
+	mainNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Поиск" image:[UIImage systemImageNamed:@"magnifyingglass"] tag:0];
 
 	// 2-я вкладка TabBar
 	UIViewController *mapVC = [MapViewBuilder build];
 	mapVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Карта цен" image:[UIImage systemImageNamed:@"map"] tag:1];
 
 	// 3-я вкладка TabBar
-//	UIViewController *favoriteVC = [FavoriteViewBuilder build];
-//	favoriteVC.tabBarItem = [[UITabBarItem alloc]  initWithTitle:favoriteVC.title image:[UIImage systemImageNamed:@"star"] tag:2];
+	UIViewController *favoriteVC = [TicketViewBuilder buildWithFavoriteController];
+	UINavigationController *favoriteNavigationController = makeNavigationControllerForRoot(favoriteVC);
+	favoriteNavigationController.tabBarItem = [[UITabBarItem alloc]  initWithTitle:@"Избранное" image:[UIImage systemImageNamed:@"star"] tag:2];
 
-	_tabBarController.viewControllers = @[navigationController,mapVC, /* favoriteVC*/];
+	_tabBarController.viewControllers = @[mainNavigationController, mapVC, favoriteNavigationController];
 
 	self.window.rootViewController = _tabBarController;
-
 	[self.window makeKeyAndVisible];
 	[self.window setWindowScene:(UIWindowScene *)_windowScene];
 
+}
+
+UINavigationController *makeNavigationControllerForRoot(UIViewController *viewController) {
+
+	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+
+	navigationController.navigationBar.prefersLargeTitles = YES;
+	navigationController.navigationBar.tintColor = UIColor.blackColor;
+	navigationController.navigationBar.barTintColor = UIColor.lightGrayColor;
+//	navigationController.navigationBar.translucent = NO;
+	//navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor cyanColor]};
+
+	return navigationController;
 }
 
 @end

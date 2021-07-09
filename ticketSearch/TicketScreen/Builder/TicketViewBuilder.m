@@ -19,4 +19,13 @@
 	return viewController;
 }
 
++ (UIViewController *)buildWithFavoriteController {
+
+	TicketViewPresenter *presenter = [TicketViewPresenter new] ;
+	TicketTableViewController *viewController = [[TicketTableViewController alloc] initFavoriteTicketsControllerWithPresenter:presenter];
+	presenter.viewInput = viewController;
+
+	return viewController;
+}
+
 @end

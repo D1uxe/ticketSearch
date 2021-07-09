@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TicketTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) UIButton *favoriteButton;
+
 -(void)configureWith:(CellModel)model;
 
 @end

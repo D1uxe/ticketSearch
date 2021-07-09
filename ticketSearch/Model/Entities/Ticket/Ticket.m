@@ -21,8 +21,6 @@
 	dispatch_once(&onceToken, ^{
 		dateF = [[NSDateFormatter alloc] init];
 		dateF.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-		dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru_RU"];
-//		dateF.locale = [NSLocale currentLocale];
 	});
 	return dateF;
 }
@@ -36,16 +34,17 @@
 		_airline = dictionary[@"airline"];
 		_expires = dateFromString(dictionary[@"expires_at"]);
 		_departure = dateFromString(dictionary[@"departure_at"]);
-		_flightNumber = dictionary [@"flight_number"];
-		_price = dictionary [@"price"];
+		_flightNumber = [dictionary[@"flight_number"] integerValue];
+		_price = [dictionary[@"price"] integerValue];
 		_returnDate = dateFromString(dictionary [@"return_at"]);
+
+		_isFavorite = NO;
 	}
 	return self;
 }
 
 NSDate *dateFromString(NSString *dateString) {
 	if (!dateString) { return  nil; }
-//	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	NSString *correctStringDate = [dateString stringByReplacingOccurrencesOfString:@"[TZ]"
 																		withString:@" "
 																		   options:NSRegularExpressionSearch
@@ -55,7 +54,6 @@ NSDate *dateFromString(NSString *dateString) {
 																	 withString:@""
 																		options:NSRegularExpressionSearch
 																		  range:NSMakeRange(0, [correctStringDate length])];
-//	dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
 	return [Ticket.dateFormatter dateFromString: correctStringDate];
 }
 
