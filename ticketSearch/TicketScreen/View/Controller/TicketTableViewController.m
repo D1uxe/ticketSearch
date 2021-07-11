@@ -19,7 +19,7 @@
 @implementation TicketTableViewController {
 	BOOL isFavoriteController;
 	BOOL isFirstLoad;
-	CGFloat tabOriginX;
+	CGFloat tabMidX;
 }
 
 //MARK: - Initialisers
@@ -63,7 +63,7 @@
 	}
 	isFirstLoad = true;
 
-	tabOriginX = CGRectGetMidX([self getFrameForTabInTabBar:self.tabBarController.tabBar withIndex:2]);
+	tabMidX = CGRectGetMidX([self getFrameForTabInTabBar:self.tabBarController.tabBar withIndex:2]);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -169,6 +169,18 @@
 @synthesize tickets;
 
 
+static void animateFavoriteButton(TicketTableViewCell *cell, BOOL flag) {
+	
+	[UIView transitionWithView:cell.favoriteButton
+					  duration:0.3
+					   options:UIViewAnimationOptionTransitionFlipFromLeft
+					animations:^{
+		cell.favoriteButton.tintColor = (flag == YES) ? UIColor.systemBlueColor : UIColor.lightGrayColor;
+	}
+					completion:^(BOOL finished) {
+	}];
+}
+
 - (void)toggleFavoriteButton:(BOOL)flag atIndexPath:(NSIndexPath *)indexPath {
 
 	if (isFavoriteController) {
@@ -181,36 +193,9 @@
 		} completion:^(BOOL finished) {
 		}];
 	} else {
+
 		TicketTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-		cell.favoriteButton.tintColor = (flag == YES) ? UIColor.systemBlueColor : UIColor.lightGrayColor;
-
-		[UIView animateWithDuration:0.3
-							  delay:0
-			 usingSpringWithDamping:0.5
-			  initialSpringVelocity:0.2
-							options:UIViewAnimationOptionCurveEaseOut
-						 animations:^{
-			cell.favoriteButton.transform = CGAffineTransformMakeTranslation(self->tabOriginX - cell.favoriteButton.frame.origin.x - 25.0, 0);
-		}
-						 completion:^(BOOL finished) {
-
-			[UIView animateWithDuration:0.5
-								  delay:0
-				 usingSpringWithDamping:1
-				  initialSpringVelocity:1
-								options:UIViewAnimationOptionCurveEaseOut
-							 animations:^{
-
-				cell.favoriteButton.transform = CGAffineTransformMakeTranslation(0, 250);
-				cell.favoriteButton.alpha = 0;
-			}
-							 completion:^(BOOL finished) {
-
-				cell.favoriteButton.transform = CGAffineTransformIdentity;
-				cell.favoriteButton.alpha = 1;
-
-			}];
-		}];
+		animateFavoriteButton(cell, flag);
 	}
 	/*
 	 Лучше всего бы было делать reloadRows, но из-за этого происходит загрузка всех данных снова, которые по сути не изменились.
