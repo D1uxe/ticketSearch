@@ -140,7 +140,9 @@
 	_dateLabel.text = model.date;
 	_airlineLogoView.image = model.airlineLogo;
 
-	_favoriteButton.tintColor = (model.isFavorite) ? UIColor.systemBlueColor : UIColor.lightGrayColor;;
+	_favoriteButton.tintColor = (model.isFavorite) ? UIColor.systemBlueColor : UIColor.lightGrayColor;
+
+	_cellModel = model;
 }
 
 @end

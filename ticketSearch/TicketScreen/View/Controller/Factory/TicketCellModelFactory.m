@@ -40,6 +40,7 @@
 			.places = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to],
 			.date = [TicketCellModelFactory.dateFormatter stringFromDate:ticket.departure],
 			.airlineLogo = image,
+			.airline = ticket.airline,
 			.isFavorite = ticket.isFavorite
 		};
 		completion(cellModel);

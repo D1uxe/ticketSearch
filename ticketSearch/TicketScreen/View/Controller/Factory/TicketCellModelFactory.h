@@ -15,6 +15,7 @@ typedef struct CellModel {
 	__unsafe_unretained NSString * _Nonnull places;
 	__unsafe_unretained NSString * _Nonnull date;
 	__unsafe_unretained UIImage * _Nullable airlineLogo;
+	__unsafe_unretained NSString * _Nonnull airline;
 	BOOL isFavorite;
 
 } CellModel;
