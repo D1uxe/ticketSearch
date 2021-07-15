@@ -9,6 +9,7 @@
 #import "PlaceViewController.h"
 
 
+
 // Протокол связи Presenter-to-View
 @protocol MainViewInput <NSObject>
 
@@ -25,6 +26,7 @@
 -(void)viewDidTapSearchButton;
 -(void)viewRequestData;
 -(void)setPlace:(id _Nonnull )place withType:(PlaceType)placeType;
+-(void)presentOnBoardScreenIfNeeded;
 
 @end
 

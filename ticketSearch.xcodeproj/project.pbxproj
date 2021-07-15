@@ -49,7 +49,6 @@
 		527D54D5269CA8B500D34B88 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 527D54D4269CA8B500D34B88 /* ContentViewController.m */; };
 		527D54D9269CA93800D34B88 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 527D54D8269CA93800D34B88 /* ContentView.m */; };
 		52B21972267FAB83005EB7A1 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B21971267FAB83005EB7A1 /* MainView.m */; };
-		52E1BFCA269D6A2E006AF2BF /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1BFC9269D6A2E006AF2BF /* FirstViewController.m */; };
 		52E1BFCF269DBBEC006AF2BF /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1BFCE269DBBEC006AF2BF /* NotificationService.m */; };
 		52EBDD072684CD9E00C426BD /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 52EBDD042684CD9D00C426BD /* cities.json */; };
 		52EBDD082684CD9E00C426BD /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 52EBDD052684CD9E00C426BD /* airports.json */; };
@@ -144,8 +143,6 @@
 		527D54D8269CA93800D34B88 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		52B21970267FAB83005EB7A1 /* MainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
 		52B21971267FAB83005EB7A1 /* MainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
-		52E1BFC8269D6A2E006AF2BF /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		52E1BFC9269D6A2E006AF2BF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		52E1BFCD269DBBEC006AF2BF /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		52E1BFCE269DBBEC006AF2BF /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		52EBDD042684CD9D00C426BD /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
@@ -612,9 +609,9 @@
 		527D54D2269CA83600D34B88 /* PageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				52E1BFD2269DCD9F006AF2BF /* Deprecated */,
-				52E1BFC8269D6A2E006AF2BF /* FirstViewController.h */,
-				52E1BFC9269D6A2E006AF2BF /* FirstViewController.m */,
+				52F77E06269CB08B004ADF97 /* View(Deprecated) */,
+				52F77E02269CB057004ADF97 /* PageViewController.h */,
+				52F77E03269CB057004ADF97 /* PageViewController.m */,
 			);
 			path = PageViewController;
 			sourceTree = "<group>";
@@ -665,16 +662,6 @@
 			path = NotificationService;
 			sourceTree = "<group>";
 		};
-		52E1BFD2269DCD9F006AF2BF /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				52F77E06269CB08B004ADF97 /* View */,
-				52F77E02269CB057004ADF97 /* PageViewController.h */,
-				52F77E03269CB057004ADF97 /* PageViewController.m */,
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 		52EBDD032684CD6300C426BD /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,13 +672,13 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		52F77E06269CB08B004ADF97 /* View */ = {
+		52F77E06269CB08B004ADF97 /* View(Deprecated) */ = {
 			isa = PBXGroup;
 			children = (
 				52F77E07269CB0A9004ADF97 /* PageView.h */,
 				52F77E08269CB0A9004ADF97 /* PageView.m */,
 			);
-			path = View;
+			path = "View(Deprecated)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -797,7 +784,6 @@
 				52654E60268A6B1D00017DB3 /* TicketTableViewCell.m in Sources */,
 				52654E57268A6A3D00017DB3 /* TicketViewPresenter.m in Sources */,
 				526681B4268B572500EF20AD /* ImageDownloader.m in Sources */,
-				52E1BFCA269D6A2E006AF2BF /* FirstViewController.m in Sources */,
 				52B21972267FAB83005EB7A1 /* MainView.m in Sources */,
 				52654E5B268A6A5A00017DB3 /* TicketViewBuilder.m in Sources */,
 				520B4DFB268DE43600136557 /* MapPrice.m in Sources */,

@@ -8,6 +8,7 @@
 #import "MainViewController.h"
 #import "MainView.h"
 
+
 @class PlaceViewController;
 
 @interface MainViewController ()
@@ -44,11 +45,14 @@
 	[_mainView.departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 	[_mainView.arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 	[_mainView.searchButton addTarget:self action:@selector(searchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+
+	[_presenter presentOnBoardScreenIfNeeded];
 }
 
 - (void)loadView {
 	self.view = [MainView new];
 }
+
 
 //MARK: - Private methods
 
