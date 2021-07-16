@@ -24,7 +24,7 @@
 	dispatch_once(&onceToken, ^{
 		dateF = [[NSDateFormatter alloc] init];
 		dateF.dateFormat = @"dd MMMM yyyy hh:mm";
-		dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+		//dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
 		//dateF.locale = [NSLocale currentLocale];
 	});
 	return dateF;

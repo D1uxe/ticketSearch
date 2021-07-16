@@ -7,7 +7,7 @@
 
 #import "MainViewController.h"
 #import "MainView.h"
-
+#import "NSString+Localize.h"
 
 @class PlaceViewController;
 
@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	self.title = @"Поиск";
+	self.title = [@"search_tab" localize];
 
 	_mainView = (MainView*) self.view;
 
@@ -86,9 +86,9 @@
 
 - (void)showAlert {
 
-	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!"
-																			 message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];
-	[alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть"
+	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[@"error" localize]
+																			 message:[@"tickets_not_found" localize] preferredStyle: UIAlertControllerStyleAlert];
+	[alertController addAction:[UIAlertAction actionWithTitle:[@"close" localize]
 														style:(UIAlertActionStyleDefault)
 													  handler:nil]];
 

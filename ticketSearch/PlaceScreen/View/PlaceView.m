@@ -6,6 +6,7 @@
 //
 
 #import "PlaceView.h"
+#import "NSString+Localize.h"
 
 @implementation PlaceView
 
@@ -36,7 +37,7 @@
 
 -(void)configureSegmentedControl {
 
-	_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Города", @"Аэропорты"]];
+	_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[[@"city" localize], [@"airport" localize]]];
 	//_segmentedControl.backgroundColor = UIColor.blackColor;
 	_segmentedControl.selectedSegmentIndex = 0;
 }
