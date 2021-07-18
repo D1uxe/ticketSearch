@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppStartManager.h"
 
 @interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 
