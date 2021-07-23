@@ -11,7 +11,7 @@
 #import "City.h"
 #import "Airport.h"
 
-#define NotificationName @"DataManagerLoadDataDidComplete"
+#define kDataManagerLoadDataDidComplete @"DataManagerLoadDataDidComplete"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shared;
 
 - (void)loadData;
+- (City *)getCityForIATA:(NSString *)iata;
 
 @end
 

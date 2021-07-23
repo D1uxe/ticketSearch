@@ -31,13 +31,13 @@
 
 	switch (selectedIndex) {
 		case 0:
-			self.viewInput.currentSourceArray = DataManager.shared.cities;
+			_viewInput.currentSourceArray = DataManager.shared.cities;
 			break;
 		case 1:
-			self.viewInput.currentSourceArray = DataManager.shared.airports;
+			_viewInput.currentSourceArray = DataManager.shared.airports;
 			break;
 	}
-	 [self.viewInput reloadTable];
+	 [_viewInput reloadTable];
 }
 
 - (void)selectPlace:(id _Nonnull)place withType:(PlaceType)placeType {

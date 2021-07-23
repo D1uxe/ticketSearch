@@ -60,9 +60,21 @@
 		self->_airportsArray = [self createEntitiesFromArray:airportsJsonArray withType: DataSourceTypeAirport];
 
 		dispatch_async(dispatch_get_main_queue(), ^{
-			[[NSNotificationCenter defaultCenter] postNotificationName:NotificationName object:nil];
+			[[NSNotificationCenter defaultCenter] postNotificationName:kDataManagerLoadDataDidComplete object:nil];
 		});
 	});
+}
+
+- (City *)getCityForIATA:(NSString *)iata {
+
+	if (iata) {
+		for (City *city in _citiesArray) {
+			if ([city.code isEqual:iata]) {
+				return city;
+			}
+		}
+	}
+	return nil;
 }
 
 //MARK: - Private methods

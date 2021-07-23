@@ -5,9 +5,9 @@
 //  Created by MacBook Pro on 25.06.2021.
 //
 
-#import "CellModelFactory.h"
+#import "PlaceCellModelFactory.h"
 
-@implementation CellModelFactory
+@implementation PlaceCellModelFactory
 
 +(CellModel)makeCellModelFromCity:(City *)city {
 

@@ -17,7 +17,7 @@ typedef struct CellModel {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CellModelFactory : NSObject
+@interface PlaceCellModelFactory : NSObject
 
 +(CellModel)makeCellModelFromCity:(City *)city;
 +(CellModel)makeCellModelFromAirport:(Airport *)airPort;

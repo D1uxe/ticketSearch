@@ -20,12 +20,20 @@
 		52384341267F396500216B81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5238433F267F396500216B81 /* LaunchScreen.storyboard */; };
 		52384344267F396500216B81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52384343267F396500216B81 /* main.m */; };
 		5238435D267F7EAB00216B81 /* AppStartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5238435C267F7EAB00216B81 /* AppStartManager.m */; };
+		523D1D852688F67500C40B90 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 523D1D842688F67500C40B90 /* APIManager.m */; };
 		5242AEF62681042C000458F9 /* MainViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AEF52681042C000458F9 /* MainViewPresenter.m */; };
 		5242AEFB2681193C000458F9 /* MainViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AEFA2681193C000458F9 /* MainViewBuilder.m */; };
 		5242AEFF26812689000458F9 /* PlaceViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AEFE26812689000458F9 /* PlaceViewBuilder.m */; };
 		5242AF042681271A000458F9 /* PlaceViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5242AF032681271A000458F9 /* PlaceViewPresenter.m */; };
 		525F73B52686225200018826 /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 525F73B42686225200018826 /* PlaceTableViewCell.m */; };
-		525F73BC2686270600018826 /* CellModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 525F73BB2686270600018826 /* CellModelFactory.m */; };
+		525F73BC2686270600018826 /* PlaceCellModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 525F73BB2686270600018826 /* PlaceCellModelFactory.m */; };
+		52654E57268A6A3D00017DB3 /* TicketViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52654E56268A6A3D00017DB3 /* TicketViewPresenter.m */; };
+		52654E5B268A6A5A00017DB3 /* TicketViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 52654E5A268A6A5A00017DB3 /* TicketViewBuilder.m */; };
+		52654E60268A6B1D00017DB3 /* TicketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52654E5F268A6B1D00017DB3 /* TicketTableViewCell.m */; };
+		52654E68268A6C0900017DB3 /* TicketTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52654E67268A6C0900017DB3 /* TicketTableViewController.m */; };
+		52654E6D268A73DD00017DB3 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 52654E6C268A73DD00017DB3 /* Ticket.m */; };
+		526681AF268B10FE00EF20AD /* TicketCellModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 526681AE268B10FE00EF20AD /* TicketCellModelFactory.m */; };
+		526681B4268B572500EF20AD /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 526681B3268B572500EF20AD /* ImageDownloader.m */; };
 		52B21972267FAB83005EB7A1 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B21971267FAB83005EB7A1 /* MainView.m */; };
 		52EBDD072684CD9E00C426BD /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 52EBDD042684CD9D00C426BD /* cities.json */; };
 		52EBDD082684CD9E00C426BD /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 52EBDD052684CD9E00C426BD /* airports.json */; };
@@ -58,6 +66,9 @@
 		52384343267F396500216B81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5238435B267F7EAB00216B81 /* AppStartManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStartManager.h; sourceTree = "<group>"; };
 		5238435C267F7EAB00216B81 /* AppStartManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStartManager.m; sourceTree = "<group>"; };
+		523D1D802688F52D00C40B90 /* SearchRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchRequest.h; sourceTree = "<group>"; };
+		523D1D832688F67500C40B90 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		523D1D842688F67500C40B90 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		5242AEF42681042C000458F9 /* MainViewPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewPresenter.h; sourceTree = "<group>"; };
 		5242AEF52681042C000458F9 /* MainViewPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewPresenter.m; sourceTree = "<group>"; };
 		5242AEF92681193C000458F9 /* MainViewBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewBuilder.h; sourceTree = "<group>"; };
@@ -70,8 +81,22 @@
 		525F73B126861DF600018826 /* DataSourceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourceType.h; sourceTree = "<group>"; };
 		525F73B32686225200018826 /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
 		525F73B42686225200018826 /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
-		525F73BA2686270600018826 /* CellModelFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellModelFactory.h; sourceTree = "<group>"; };
-		525F73BB2686270600018826 /* CellModelFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellModelFactory.m; sourceTree = "<group>"; };
+		525F73BA2686270600018826 /* PlaceCellModelFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceCellModelFactory.h; sourceTree = "<group>"; };
+		525F73BB2686270600018826 /* PlaceCellModelFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceCellModelFactory.m; sourceTree = "<group>"; };
+		52654E55268A6A3D00017DB3 /* TicketViewPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketViewPresenter.h; sourceTree = "<group>"; };
+		52654E56268A6A3D00017DB3 /* TicketViewPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketViewPresenter.m; sourceTree = "<group>"; };
+		52654E59268A6A5A00017DB3 /* TicketViewBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketViewBuilder.h; sourceTree = "<group>"; };
+		52654E5A268A6A5A00017DB3 /* TicketViewBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketViewBuilder.m; sourceTree = "<group>"; };
+		52654E5E268A6B1D00017DB3 /* TicketTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketTableViewCell.h; sourceTree = "<group>"; };
+		52654E5F268A6B1D00017DB3 /* TicketTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewCell.m; sourceTree = "<group>"; };
+		52654E66268A6C0900017DB3 /* TicketTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketTableViewController.h; sourceTree = "<group>"; };
+		52654E67268A6C0900017DB3 /* TicketTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewController.m; sourceTree = "<group>"; };
+		52654E6B268A73DD00017DB3 /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		52654E6C268A73DD00017DB3 /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		526681AD268B10FE00EF20AD /* TicketCellModelFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketCellModelFactory.h; sourceTree = "<group>"; };
+		526681AE268B10FE00EF20AD /* TicketCellModelFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketCellModelFactory.m; sourceTree = "<group>"; };
+		526681B2268B572500EF20AD /* ImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		526681B3268B572500EF20AD /* ImageDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		52B21970267FAB83005EB7A1 /* MainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
 		52B21971267FAB83005EB7A1 /* MainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 		52EBDD042684CD9D00C426BD /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
@@ -97,6 +122,7 @@
 				520D182F26835A990039C63A /* Services */,
 				525F73AF26861BA800018826 /* PlaceType.h */,
 				525F73B126861DF600018826 /* DataSourceType.h */,
+				523D1D802688F52D00C40B90 /* SearchRequest.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +139,8 @@
 		520D182F26835A990039C63A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				526681B1268B570D00EF20AD /* ImageDownloader */,
+				523D1D822688F64200C40B90 /* APIManager */,
 				520D182E26835A860039C63A /* DataManager */,
 			);
 			path = Services;
@@ -121,6 +149,7 @@
 		520D183026835AD90039C63A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				52654E6A268A73C100017DB3 /* Ticket */,
 				520D183D268385A60039C63A /* Country */,
 				520D183E268385BB0039C63A /* City */,
 				520D1840268385C60039C63A /* Airport */,
@@ -210,6 +239,7 @@
 				520D182D26835A630039C63A /* Model */,
 				5238434D267F5A9500216B81 /* MainScreen */,
 				52297025267FCB8F002B2765 /* PlaceScreen */,
+				52654E48268A61EF00017DB3 /* TicketScreen */,
 			);
 			path = ticketSearch;
 			sourceTree = "<group>";
@@ -265,6 +295,15 @@
 			path = AppStartManager;
 			sourceTree = "<group>";
 		};
+		523D1D822688F64200C40B90 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				523D1D832688F67500C40B90 /* APIManager.h */,
+				523D1D842688F67500C40B90 /* APIManager.m */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		5242AEF22680D89D000458F9 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,10 +343,93 @@
 		525F73BE2686303D00018826 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				525F73BA2686270600018826 /* CellModelFactory.h */,
-				525F73BB2686270600018826 /* CellModelFactory.m */,
+				525F73BA2686270600018826 /* PlaceCellModelFactory.h */,
+				525F73BB2686270600018826 /* PlaceCellModelFactory.m */,
 			);
 			path = Factory;
+			sourceTree = "<group>";
+		};
+		52654E48268A61EF00017DB3 /* TicketScreen */ = {
+			isa = PBXGroup;
+			children = (
+				52654E49268A692D00017DB3 /* Builder */,
+				52654E4A268A696800017DB3 /* Presenter */,
+				52654E4B268A699B00017DB3 /* View */,
+			);
+			path = TicketScreen;
+			sourceTree = "<group>";
+		};
+		52654E49268A692D00017DB3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				52654E59268A6A5A00017DB3 /* TicketViewBuilder.h */,
+				52654E5A268A6A5A00017DB3 /* TicketViewBuilder.m */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		52654E4A268A696800017DB3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				52654E55268A6A3D00017DB3 /* TicketViewPresenter.h */,
+				52654E56268A6A3D00017DB3 /* TicketViewPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		52654E4B268A699B00017DB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52654E4C268A69B500017DB3 /* Controller */,
+				52654E62268A6B2400017DB3 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52654E4C268A69B500017DB3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52654E63268A6B2D00017DB3 /* Factory */,
+				52654E66268A6C0900017DB3 /* TicketTableViewController.h */,
+				52654E67268A6C0900017DB3 /* TicketTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		52654E62268A6B2400017DB3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				52654E5E268A6B1D00017DB3 /* TicketTableViewCell.h */,
+				52654E5F268A6B1D00017DB3 /* TicketTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		52654E63268A6B2D00017DB3 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				526681AD268B10FE00EF20AD /* TicketCellModelFactory.h */,
+				526681AE268B10FE00EF20AD /* TicketCellModelFactory.m */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		52654E6A268A73C100017DB3 /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				52654E6B268A73DD00017DB3 /* Ticket.h */,
+				52654E6C268A73DD00017DB3 /* Ticket.m */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		526681B1268B570D00EF20AD /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				526681B2268B572500EF20AD /* ImageDownloader.h */,
+				526681B3268B572500EF20AD /* ImageDownloader.m */,
+			);
+			path = ImageDownloader;
 			sourceTree = "<group>";
 		};
 		52B2196F267FAB19005EB7A1 /* Controller */ = {
@@ -419,11 +541,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				525F73BC2686270600018826 /* CellModelFactory.m in Sources */,
+				525F73BC2686270600018826 /* PlaceCellModelFactory.m in Sources */,
+				523D1D852688F67500C40B90 /* APIManager.m in Sources */,
 				52297022267FCB76002B2765 /* PlaceView.m in Sources */,
 				52384339267F396400216B81 /* MainViewController.m in Sources */,
 				52384333267F396400216B81 /* AppDelegate.m in Sources */,
 				520D183326835B520039C63A /* Country.m in Sources */,
+				526681AF268B10FE00EF20AD /* TicketCellModelFactory.m in Sources */,
 				52384344267F396500216B81 /* main.m in Sources */,
 				52297029267FCBD8002B2765 /* PlaceViewController.m in Sources */,
 				520D183B268378E30039C63A /* Airport.m in Sources */,
@@ -432,11 +556,17 @@
 				5242AEF62681042C000458F9 /* MainViewPresenter.m in Sources */,
 				5242AEFB2681193C000458F9 /* MainViewBuilder.m in Sources */,
 				5238435D267F7EAB00216B81 /* AppStartManager.m in Sources */,
+				52654E68268A6C0900017DB3 /* TicketTableViewController.m in Sources */,
+				52654E60268A6B1D00017DB3 /* TicketTableViewCell.m in Sources */,
+				52654E57268A6A3D00017DB3 /* TicketViewPresenter.m in Sources */,
+				526681B4268B572500EF20AD /* ImageDownloader.m in Sources */,
 				52B21972267FAB83005EB7A1 /* MainView.m in Sources */,
+				52654E5B268A6A5A00017DB3 /* TicketViewBuilder.m in Sources */,
 				525F73B52686225200018826 /* PlaceTableViewCell.m in Sources */,
 				520D1844268385F10039C63A /* DataManager.m in Sources */,
 				520D1837268364AA0039C63A /* City.m in Sources */,
 				5242AF042681271A000458F9 /* PlaceViewPresenter.m in Sources */,
+				52654E6D268A73DD00017DB3 /* Ticket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
