@@ -9,17 +9,21 @@
 #import "TicketViewPresenter.h"
 #import "TicketTableViewCell.h"
 #import "FavoriteTicket+CoreDataClass.h"
+#import "NotificationService.h"
 
 #define TicketCellReuseIdentifier @"TicketCellIdentifier"
 
 @interface TicketTableViewController ()
+
+@property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, strong) UITextField *dateTextField;
 
 @end
 
 @implementation TicketTableViewController {
 	BOOL isFavoriteController;
 	BOOL isFirstLoad;
-	CGFloat tabMidX;
+	TicketTableViewCell *notificationCell;
 }
 
 //MARK: - Initialisers
@@ -60,10 +64,9 @@
 	} else {
 
 		[_presenter viewRequestTickets];
+		[self createDatePicker];
 	}
 	isFirstLoad = true;
-
-	tabMidX = CGRectGetMidX([self getFrameForTabInTabBar:self.tabBarController.tabBar withIndex:2]);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -114,23 +117,103 @@
 	 */
 }
 
-- (CGRect)getFrameForTabInTabBar:(UITabBar*)tabBar withIndex:(NSUInteger)index {
+- (void)createDatePicker {
 
-	NSUInteger currentTabIndex = 0;
+	_datePicker = [[UIDatePicker alloc] init];
+	_datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+	_datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+	_datePicker.minimumDate = [NSDate date];
 
-	for (UIView* subView in tabBar.subviews)
-	{
-		if ([subView isKindOfClass:NSClassFromString(@"UITabBarButton")])
-		{
-			if (currentTabIndex == index)
-				return subView.frame;
-			else
-				currentTabIndex++;
-		}
-	}
-	NSAssert(NO, @"Index is out of bounds");
-	return CGRectNull;
+	_dateTextField = [[UITextField alloc] initWithFrame:self.view.bounds];
+	_dateTextField.hidden = YES;
+	_dateTextField.inputView = _datePicker;
+
+	UIToolbar *keyboardToolbar = [[UIToolbar alloc] init];
+	[keyboardToolbar sizeToFit];
+	UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidTap:)];
+	keyboardToolbar.items = @[flexBarButton, doneBarButton];
+
+	_dateTextField.inputAccessoryView = keyboardToolbar;
+
+	[self.view addSubview:_dateTextField];
 }
+
+- (void)doneButtonDidTap:(UIBarButtonItem *)sender {
+
+	NSDateFormatter *dateF = [[NSDateFormatter alloc] init];
+	dateF.dateStyle = NSDateFormatterMediumStyle;
+	dateF.timeStyle = NSDateFormatterShortStyle;
+	dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+
+	if (_datePicker.date && notificationCell) {
+		NSString *message = [NSString stringWithFormat:@"%@ за %@ ", notificationCell.cellModel.places, notificationCell.cellModel.price];
+
+		NSURL *imageURL;
+		if (notificationCell.cellModel.airlineLogo) {
+			NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/%@.png", notificationCell.cellModel.airline]];
+			if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+				UIImage *logo = notificationCell.cellModel.airlineLogo;
+				NSData *pngData = UIImagePNGRepresentation(logo);
+				[pngData writeToFile:path atomically:YES];
+
+			}
+			imageURL = [NSURL fileURLWithPath:path];
+		}
+
+		Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
+		[[NotificationService shared] sendNotification:notification];
+
+		UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", [dateF stringFromDate:_datePicker.date]] preferredStyle:(UIAlertControllerStyleAlert)];
+
+		UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+		[alertController addAction:cancelAction];
+
+		_datePicker.date = [NSDate date];
+		notificationCell = nil;
+		[self.view endEditing:YES];
+
+		[self presentViewController:alertController animated:YES completion:nil];
+	}
+}
+
+- (void)showAlertAtIndexPath: (NSIndexPath *)indexPath {
+
+	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с билетом" message:@"Создать напоминание для билета?" preferredStyle:UIAlertControllerStyleActionSheet];
+
+	UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Напомнить" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+		self->notificationCell = [self.tableView cellForRowAtIndexPath:indexPath];
+		[self->_dateTextField becomeFirstResponder];
+	}];
+	UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+
+	[alertController addAction:notificationAction];
+	[alertController addAction:cancelAction];
+
+	[self presentViewController:alertController animated:YES completion:nil];
+}
+
+/* Deprecated. Использовался для анимации кнопки добавить в избранное
+ - (CGRect)getFrameForTabInTabBar:(UITabBar*)tabBar withIndex:(NSUInteger)index {
+
+ NSUInteger currentTabIndex = 0;
+
+ for (UIView* subView in tabBar.subviews)
+ {
+ if ([subView isKindOfClass:NSClassFromString(@"UITabBarButton")])
+ {
+ if (currentTabIndex == index)
+ return subView.frame;
+ else
+ currentTabIndex++;
+ }
+ }
+ NSAssert(NO, @"Index is out of bounds");
+ return CGRectNull;
+ }
+ */
+
+
 
 #pragma mark - Table view data source
 
@@ -162,7 +245,13 @@
 	return 155.0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+	if (isFavoriteController) return;
+
+	[self showAlertAtIndexPath:indexPath];
+
+}
 
 //MARK: - ViewInput protocol
 
@@ -199,11 +288,10 @@ static void animateFavoriteButton(TicketTableViewCell *cell, BOOL flag) {
 	}
 	/*
 	 Лучше всего бы было делать reloadRows, но из-за этого происходит загрузка всех данных снова, которые по сути не изменились.
-	 Поменялось только состояние кнопки - закрашена/незакрашена, поэтому перезагрузку таблицы делать не стал - не оптимально в данном
+	 Поменялось только состояние кнопки - закрашена/не закрашена, поэтому перезагрузку таблицы делать не стал - не оптимально в данном
 	 случае.
 	 [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	 */
 }
-
 
 @end

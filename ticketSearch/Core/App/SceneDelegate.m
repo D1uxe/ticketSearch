@@ -6,7 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-
+#import "NotificationService.h"
 
 @interface SceneDelegate ()
 
@@ -23,6 +23,7 @@
 	AppStartManager *appManager = [[AppStartManager alloc] initWithWindow:self.window withScene:scene];
 	[appManager start];
 
+	[[NotificationService shared] registerService];
 }
 
 

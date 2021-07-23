@@ -11,6 +11,9 @@
 #import "TicketViewBuilder.h"
 #import "SearchRequest.h"
 #import "APIManager.h"
+#import "ProgressView.h"
+#import "PageViewController.h"
+
 
 @interface MainViewPresenter ()
 
@@ -32,16 +35,23 @@
 
 -(void)openTicketView {
 
-	[[APIManager shared] getTicketsWithRequest:_searchRequest withCompletion:^(NSArray *tickets) {
+	[ProgressView.shared show:^{
 
-		if (tickets.count > 0) {
+		[[APIManager shared] getTicketsWithRequest:self->_searchRequest withCompletion:^(NSArray *tickets) {
 
-			UIViewController *viewController = [TicketViewBuilder buildWithTickets:tickets];
-			[self->_viewInput.navigationController pushViewController:viewController animated:YES];
+			[ProgressView.shared dismiss:^{
 
-		} else {
-			[self->_viewInput showAlert];
-		}
+				if (tickets.count > 0) {
+
+					UIViewController *viewController = [TicketViewBuilder buildWithTickets:tickets];
+					[self->_viewInput.navigationController pushViewController:viewController animated:YES];
+
+				} else {
+
+					[self->_viewInput showAlert];
+				}
+			}];
+		}];
 	}];
 }
 
@@ -64,6 +74,19 @@
 	}];
 }
 
+- (void)presentOnBoardScreen {
+
+	BOOL isFirstStart = [[NSUserDefaults standardUserDefaults] boolForKey:@"first_start"];
+
+	if (!isFirstStart) {
+		PageViewController *pageViewController = [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+																			   navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+																							 options:nil];
+
+		[_viewInput presentViewController:pageViewController animated:YES completion:nil];
+
+	}
+}
 
 //MARK: - Deinitialisers
 
@@ -99,24 +122,33 @@
 	NSString *iata;
 
 	if ([place isMemberOfClass:[City class]]) {
+
 		City *city = (City *)place;
 		title = city.name;
 		iata = city.code;
 	}
 	else if ([place isMemberOfClass:[Airport class]]) {
+
 		Airport *airport = (Airport *)place;
 		title = airport.name;
 		iata = airport.cityCode;
 	}
 
 	if (placeType == PlaceTypeDeparture) {
+
 		_searchRequest.origin = iata;
 	} else {
+		
 		_searchRequest.destination = iata;
 	}
 
 	[_viewInput setTitleForButton:title withPlaceType: placeType];
 	[_viewInput.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)presentOnBoardScreenIfNeeded {
+
+	[self presentOnBoardScreen];
 }
 
 
