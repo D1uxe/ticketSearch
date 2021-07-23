@@ -24,6 +24,8 @@
 	dispatch_once(&onceToken, ^{
 		dateF = [[NSDateFormatter alloc] init];
 		dateF.dateFormat = @"dd MMMM yyyy hh:mm";
+		dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+		//dateF.locale = [NSLocale currentLocale];
 	});
 	return dateF;
 }
@@ -34,10 +36,11 @@
 	[[ImageDownloader shared] getImageForAirline:ticket.airline withCompletion:^(UIImage * _Nonnull image) {
 
 		CellModel cellModel = (CellModel){
-			.price = [NSString stringWithFormat:@"%@ руб.", ticket.price],
+			.price = [NSString stringWithFormat:@"%ld руб.", (long)ticket.price],
 			.places = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to],
 			.date = [TicketCellModelFactory.dateFormatter stringFromDate:ticket.departure],
-			.airlineLogo = image
+			.airlineLogo = image,
+			.isFavorite = ticket.isFavorite
 		};
 		completion(cellModel);
 	}];

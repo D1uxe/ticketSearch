@@ -26,6 +26,7 @@
 	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 	if (self) {
 
+		self.selectionStyle = UITableViewCellSelectionStyleNone;
 		[self configureUI];
 	}
 	return self;
@@ -53,15 +54,19 @@
 										80.0);
 
 	_placesLabel.frame = CGRectMake(10.0,
-									CGRectGetMaxY(_priceLabel.frame) + 16.0,
+									CGRectGetMaxY(_priceLabel.frame) + 23.0,
 									100.0,
 									20.0);
 
 	_dateLabel.frame = CGRectMake(10.0,
-								  CGRectGetMaxY(_placesLabel.frame) + 8.0,
-								  self.contentView.frame.size.width - 20.0,
+								  CGRectGetMaxY(_placesLabel.frame) + 15.0,
+								  self.contentView.frame.size.width - 110.0,
 								  20.0);
 
+	_favoriteButton.frame = CGRectMake(CGRectGetMaxX(_airlineLogoView.frame) - 35.0,
+									   CGRectGetMaxY(_priceLabel.frame) + 44.0,
+									   35.0,
+									   35.0);
 }
 
 
@@ -80,6 +85,7 @@
 	[self addPlacesLabel];
 	[self addDateLabel];
 	[self addAirlineLogoView];
+	[self addFavoriteButton];
 }
 
 -(void)addPriceLabel {
@@ -115,6 +121,15 @@
 	[self.contentView addSubview:_airlineLogoView];
 }
 
+-(void)addFavoriteButton {
+
+	_favoriteButton = [[UIButton alloc] init];
+	[_favoriteButton setImage:[UIImage systemImageNamed:@"star.fill"] forState:UIControlStateNormal];
+	_favoriteButton.tintColor = UIColor.lightGrayColor;
+
+	[self.contentView addSubview:_favoriteButton];
+}
+
 
 //MARK: - Public methods
 
@@ -124,6 +139,8 @@
 	_placesLabel.text = model.places;
 	_dateLabel.text = model.date;
 	_airlineLogoView.image = model.airlineLogo;
+
+	_favoriteButton.tintColor = (model.isFavorite) ? UIColor.systemBlueColor : UIColor.lightGrayColor;;
 }
 
 @end

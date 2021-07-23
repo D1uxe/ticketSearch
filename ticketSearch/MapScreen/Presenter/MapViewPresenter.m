@@ -41,13 +41,13 @@
 				[self->_viewInput removeMapAnnotation];
 
 				for (MapPrice *price in prices) {
-					//dispatch_async(dispatch_get_main_queue(), ^{
+					dispatch_async(dispatch_get_main_queue(), ^{
 						MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
 						annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
 						annotation.subtitle = [NSString stringWithFormat:@"%ld руб.", (long)price.value];
 						annotation.coordinate = price.destination.coordinate;
 						[self->_viewInput addMapAnnotation: annotation];
-					//});
+					});
 				}
 			}];
 		}

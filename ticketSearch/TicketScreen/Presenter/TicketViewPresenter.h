@@ -10,7 +10,9 @@
 // Протокол связи Presenter-to-View
 @protocol TicketViewInput <NSObject>
 
-@property (nonatomic, strong, nonnull) NSArray * tickets;
+@property (nonatomic, strong, nonnull) NSMutableArray * tickets;
+
+-(void)toggleFavoriteButton:(BOOL)flag atIndexPath:(NSIndexPath *_Nonnull)indexPath;
 
 @end
 
@@ -18,6 +20,8 @@
 @protocol TicketViewOutput <NSObject>
 
 -(void)viewRequestTickets;
+-(void)viewRequestFavoriteTickets;
+-(void)viewDidTapFavoriteButtonWith:(NSIndexPath *_Nonnull)indexPath;
 
 @end
 

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TicketViewBuilder : NSObject
 
 +(UIViewController *)buildWithTickets:(NSArray *)tickets;
++(UIViewController *)buildWithFavoriteController;
 
 @end
 

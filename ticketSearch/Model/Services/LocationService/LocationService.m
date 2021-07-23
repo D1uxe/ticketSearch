@@ -43,7 +43,7 @@
 
 	} else if (status != kCLAuthorizationStatusNotDetermined) {
 
-		NSLog(@"Не удалось определить текущий город");
+		NSLog(@"Не удалось определить текущий город. Требуется доступ к определению местоположения");
 //		UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Не удалось определить текущий город!" preferredStyle: UIAlertControllerStyleAlert];
 //
 //		[alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
