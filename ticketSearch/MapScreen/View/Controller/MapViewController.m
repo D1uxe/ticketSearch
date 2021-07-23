@@ -7,6 +7,7 @@
 
 #import "MapViewController.h"
 #import "MapView.h"
+#import "NSString+Localize.h"
 
 @interface MapViewController ()
 
@@ -32,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	self.title = @"Карта цен";
+	self.title = [@"map_tab" localize];
 
 	_mapView = (MapView*) self.view;
 

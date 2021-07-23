@@ -8,7 +8,7 @@
 #import "PageView.h"
 
 
-
+DEPRECATED_MSG_ATTRIBUTE("The class is no longer needed")
 @implementation PageView
 
 - (instancetype)init

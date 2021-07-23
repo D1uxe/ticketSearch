@@ -10,6 +10,7 @@
 #import "MainViewBuilder.h"
 #import "MapViewBuilder.h"
 #import "TicketViewBuilder.h"
+#import "NSString+Localize.h"
 
 @interface AppStartManager()
 
@@ -44,16 +45,16 @@
 	UIViewController *rootVC = [MainViewBuilder build];
 	UINavigationController *mainNavigationController = makeNavigationControllerForRoot(rootVC);
 
-	mainNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Поиск" image:[UIImage systemImageNamed:@"magnifyingglass"] tag:0];
+	mainNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:[@"search_tab" localize] image:[UIImage systemImageNamed:@"magnifyingglass"] tag:0];
 
 	// 2-я вкладка TabBar
 	UIViewController *mapVC = [MapViewBuilder build];
-	mapVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Карта цен" image:[UIImage systemImageNamed:@"map"] tag:1];
+	mapVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:[@"map_tab" localize] image:[UIImage systemImageNamed:@"map"] tag:1];
 
 	// 3-я вкладка TabBar
 	UIViewController *favoriteVC = [TicketViewBuilder buildWithFavoriteController];
 	UINavigationController *favoriteNavigationController = makeNavigationControllerForRoot(favoriteVC);
-	favoriteNavigationController.tabBarItem = [[UITabBarItem alloc]  initWithTitle:@"Избранное" image:[UIImage systemImageNamed:@"star"] tag:2];
+	favoriteNavigationController.tabBarItem = [[UITabBarItem alloc]  initWithTitle:[@"favorites_tab" localize] image:[UIImage systemImageNamed:@"star"] tag:2];
 
 	_tabBarController.viewControllers = @[mainNavigationController, mapVC, favoriteNavigationController];
 

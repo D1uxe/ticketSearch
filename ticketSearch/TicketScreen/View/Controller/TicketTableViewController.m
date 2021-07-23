@@ -10,6 +10,7 @@
 #import "TicketTableViewCell.h"
 #import "FavoriteTicket+CoreDataClass.h"
 #import "NotificationService.h"
+#import "NSString+Localize.h"
 
 #define TicketCellReuseIdentifier @"TicketCellIdentifier"
 
@@ -17,13 +18,13 @@
 
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UITextField *dateTextField;
+@property (nonatomic, strong) TicketTableViewCell *notificationCell;
 
 @end
 
 @implementation TicketTableViewController {
 	BOOL isFavoriteController;
 	BOOL isFirstLoad;
-	TicketTableViewCell *notificationCell;
 }
 
 //MARK: - Initialisers
@@ -33,7 +34,7 @@
 	self = [super init];
 	if (self) {
 		_presenter = presenter;
-		self.title = @"Билеты";
+		self.title = [@"tickets_title" localize];
 	}
 	return self;
 }
@@ -44,7 +45,7 @@
 	if (self) {
 		_presenter = presenter;
 		isFavoriteController = YES;
-		self.title = @"Избранное";
+		self.title = [@"favorites_tab" localize];
 	}
 	return self;
 }
@@ -144,33 +145,34 @@
 	NSDateFormatter *dateF = [[NSDateFormatter alloc] init];
 	dateF.dateStyle = NSDateFormatterMediumStyle;
 	dateF.timeStyle = NSDateFormatterShortStyle;
-	dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+//	dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
 
-	if (_datePicker.date && notificationCell) {
-		NSString *message = [NSString stringWithFormat:@"%@ за %@ ", notificationCell.cellModel.places, notificationCell.cellModel.price];
+	if (_datePicker.date && _notificationCell) {
+		NSString *message = [NSString stringWithFormat:@"%@ за %@ ", _notificationCell.cellModel.places, _notificationCell.price];
 
 		NSURL *imageURL;
-		if (notificationCell.cellModel.airlineLogo) {
-			NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/%@.png", notificationCell.cellModel.airline]];
+		if (_notificationCell.cellModel.airlineLogo) {
+			NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/%@.png", _notificationCell.cellModel.airline]];
 			if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-				UIImage *logo = notificationCell.cellModel.airlineLogo;
+				UIImage *logo = _notificationCell.cellModel.airlineLogo;
 				NSData *pngData = UIImagePNGRepresentation(logo);
 				[pngData writeToFile:path atomically:YES];
 
 			}
 			imageURL = [NSURL fileURLWithPath:path];
 		}
-
-		Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
+		NSString *title = [NSString localizedUserNotificationStringForKey:@"notification_title" arguments:nil];
+		Notification notification = NotificationMake(title, message, _datePicker.date, imageURL);
 		[[NotificationService shared] sendNotification:notification];
 
-		UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", [dateF stringFromDate:_datePicker.date]] preferredStyle:(UIAlertControllerStyleAlert)];
+		UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[@"notification_success" localize]
+																				 message:[NSString stringWithFormat:@"%@ - %@", [@"notification_success_describe" localize],[dateF stringFromDate:_datePicker.date]] preferredStyle:(UIAlertControllerStyleAlert)];
 
-		UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+		UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:[@"close" localize] style:UIAlertActionStyleCancel handler:nil];
 		[alertController addAction:cancelAction];
 
 		_datePicker.date = [NSDate date];
-		notificationCell = nil;
+		_notificationCell = nil;
 		[self.view endEditing:YES];
 
 		[self presentViewController:alertController animated:YES completion:nil];
@@ -179,16 +181,22 @@
 
 - (void)showAlertAtIndexPath: (NSIndexPath *)indexPath {
 
-	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с билетом" message:@"Создать напоминание для билета?" preferredStyle:UIAlertControllerStyleActionSheet];
+	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[@"actions_with_tickets" localize]
+																			 message:[@"actions_with_tickets_describe" localize] preferredStyle:UIAlertControllerStyleActionSheet];
 
-	UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Напомнить" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-		self->notificationCell = [self.tableView cellForRowAtIndexPath:indexPath];
+	UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:[@"actions_with_tickets_remember" localize]
+																 style:(UIAlertActionStyleDefault)
+															   handler:^(UIAlertAction * _Nonnull action) {
+
+		self.notificationCell = [self.tableView cellForRowAtIndexPath:indexPath];
 		[self->_dateTextField becomeFirstResponder];
 	}];
-	UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+	UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:[@"close" localize] style:UIAlertActionStyleCancel handler:nil];
 
 	[alertController addAction:notificationAction];
 	[alertController addAction:cancelAction];
+
+	[self.view endEditing:YES];
 
 	[self presentViewController:alertController animated:YES completion:nil];
 }
@@ -226,6 +234,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	TicketTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TicketCellReuseIdentifier forIndexPath:indexPath];
+	if (!cell) {
+		cell = [[TicketTableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:TicketCellReuseIdentifier];
+	}
 
 	[cell.favoriteButton addTarget:self action:@selector(favoriteButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 

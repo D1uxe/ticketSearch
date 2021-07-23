@@ -8,6 +8,7 @@
 #import "PlaceViewController.h"
 #import "PlaceView.h"
 #import "PlaceTableViewCell.h"
+#import "NSString+Localize.h"
 
 #define ReuseIdentifier @"CellIdentifier"
 
@@ -37,9 +38,9 @@
 -(NSString*)title {
 
 	if (_placeType == PlaceTypeDeparture) {
-		return @"Откуда";
+		return [@"main_from" localize];
 	} else {
-		return @"Куда";
+		return [@"main_to" localize];
 	}
 }
 

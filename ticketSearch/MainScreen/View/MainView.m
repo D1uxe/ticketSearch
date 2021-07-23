@@ -6,6 +6,7 @@
 //
 
 #import "MainView.h"
+#import "NSString+Localize.h"
 
 static CGFloat const cornerRadius = 4.0;
 
@@ -60,7 +61,7 @@ static CGFloat const cornerRadius = 4.0;
 -(void)addDepartureButton {
 
 	_departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	[_departureButton setTitle:@"Откуда" forState:UIControlStateNormal];
+	[_departureButton setTitle:[@"main_from" localize] forState:UIControlStateNormal];
 	_departureButton.tintColor = UIColor.blackColor;
 	_departureButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
 	_departureButton.layer.cornerRadius = cornerRadius;
@@ -75,7 +76,7 @@ static CGFloat const cornerRadius = 4.0;
 -(void)addArrivalButton {
 
 	_arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	[_arrivalButton setTitle:@"Куда" forState:UIControlStateNormal];
+	[_arrivalButton setTitle:[@"main_to" localize] forState:UIControlStateNormal];
 	_arrivalButton.tintColor = UIColor.blackColor;
 	_arrivalButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
 	_arrivalButton.layer.cornerRadius = cornerRadius;
@@ -90,7 +91,7 @@ static CGFloat const cornerRadius = 4.0;
 -(void)addSearchButton {
 
 	_searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	[_searchButton setTitle:@"Найти" forState:UIControlStateNormal];
+	[_searchButton setTitle:[@"main_search" localize] forState:UIControlStateNormal];
 	_searchButton.tintColor = UIColor.whiteColor;
 	_searchButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.9];
 	_searchButton.titleLabel.font = [UIFont systemFontOfSize:20.0 weight:UIFontWeightBold];

@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  ticketSearch
+
+  Created by MacBook Pro on 16.07.2021.
+  
+*/
+
+// TabBarController
+
+"search_tab" = "Поиск";
+"map_tab" = "Карта цен";
+"favorites_tab" = "Избранное";
+
+
+// MainViewController
+
+"main_from" = "Откуда";
+"main_to" = "Куда";
+"main_search" = "Найти";
+
+
+// PlaceViewController
+
+"city" = "Города";
+"airport" = "Аэропорты";
+
+
+// PageViewController
+
+"about_app_header" = "О ПРИЛОЖЕНИИ";
+"tickets_header" = "АВИАБИЛЕТЫ";
+"map_price_header" = "КАРТА ЦЕН";
+"favorites_header" = "ИЗБРАННОЕ";
+
+"about_app_describe" = "Приложение для поиска авиабилетов";
+"tickets_describe" = "Находите самые дешевые авиабилеты";
+"map_price_describe" = "Просматривайте карту цен";
+"favorites_describe" = "Сохраняйте выбранные билеты в избранное";
+
+"next_button" = "ДАЛЕЕ";
+"done_button" = "ГОТОВО";
+
+
+// TicketViewController
+
+"tickets_title" = "Билеты";
+
+"actions_with_tickets" = "Действия с билетом";
+"actions_with_tickets_describe" = "Создать напоминание для билета?";
+"actions_with_tickets_remember" = "Напомнить";
+
+
+// Alerts
+
+"error" = "Ошибка";
+"tickets_not_found" = "По данному направлению билетов не найдено";
+"close" = "Закрыть";
+"not_set_place_arrival_or_departure" = "Необходимо указать место отправления и место прибытия";
+
+"not_determine_current_city" = "Не удалось определить текущий город. Требуется доступ к определению местоположения";
+
+
+//Notification
+
+"notification_title" = "Напоминание о билете";
+"notification_success" = "Успешно";
+"notification_success_describe" = "Уведомление будет отправлено";
+
+
+"currency" = "Руб.";

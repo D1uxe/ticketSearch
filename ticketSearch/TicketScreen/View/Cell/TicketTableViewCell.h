@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIButton *favoriteButton;
 @property (nonatomic, readonly) CellModel cellModel;
+@property (nonatomic, strong, readonly) NSString *price;
 
 -(void)configureWith:(CellModel)model;
 

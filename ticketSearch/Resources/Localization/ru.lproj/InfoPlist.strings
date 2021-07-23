@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  ticketSearch
+
+  Created by MacBook Pro on 16.07.2021.
+  
+*/
+
+"CFBundleDisplayName" = "Авиабилеты";
+"CFBundleName" = "Авиабилеты";

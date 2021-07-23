@@ -7,7 +7,7 @@
 
 #import "TicketCellModelFactory.h"
 #import "ImageDownloader.h"
-
+#import "NSString+Localize.h"
 
 @interface TicketCellModelFactory ()
 
@@ -24,7 +24,7 @@
 	dispatch_once(&onceToken, ^{
 		dateF = [[NSDateFormatter alloc] init];
 		dateF.dateFormat = @"dd MMMM yyyy hh:mm";
-		dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
+		//dateF.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ru"];
 		//dateF.locale = [NSLocale currentLocale];
 	});
 	return dateF;
@@ -36,7 +36,7 @@
 	[[ImageDownloader shared] getImageForAirline:ticket.airline withCompletion:^(UIImage * _Nonnull image) {
 
 		CellModel cellModel = (CellModel){
-			.price = [NSString stringWithFormat:@"%ld руб.", (long)ticket.price],
+			.price = [NSString stringWithFormat:@"%ld %@", (long)ticket.price, [@"currency" localize]],
 			.places = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to],
 			.date = [TicketCellModelFactory.dateFormatter stringFromDate:ticket.departure],
 			.airlineLogo = image,
