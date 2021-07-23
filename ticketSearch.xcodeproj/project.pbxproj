@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520B4DFB268DE43600136557 /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 520B4DFA268DE43600136557 /* MapPrice.m */; };
+		520B4E01268DF83300136557 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 520B4E00268DF83300136557 /* LocationService.m */; };
+		520B4E0A268DFFA100136557 /* MapViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 520B4E09268DFFA100136557 /* MapViewBuilder.m */; };
+		520B4E0E268DFFB900136557 /* MapViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 520B4E0D268DFFB900136557 /* MapViewPresenter.m */; };
+		520B4E12268DFFD000136557 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 520B4E11268DFFD000136557 /* MapView.m */; };
+		520B4E16268DFFE800136557 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520B4E15268DFFE800136557 /* MapViewController.m */; };
 		520D183326835B520039C63A /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 520D183226835B520039C63A /* Country.m */; };
 		520D1837268364AA0039C63A /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 520D1836268364AA0039C63A /* City.m */; };
 		520D183B268378E30039C63A /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 520D183A268378E30039C63A /* Airport.m */; };
@@ -41,6 +47,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520B4DF9268DE43600136557 /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
+		520B4DFA268DE43600136557 /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
+		520B4DFF268DF83300136557 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		520B4E00268DF83300136557 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		520B4E08268DFFA100136557 /* MapViewBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewBuilder.h; sourceTree = "<group>"; };
+		520B4E09268DFFA100136557 /* MapViewBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewBuilder.m; sourceTree = "<group>"; };
+		520B4E0C268DFFB900136557 /* MapViewPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewPresenter.h; sourceTree = "<group>"; };
+		520B4E0D268DFFB900136557 /* MapViewPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewPresenter.m; sourceTree = "<group>"; };
+		520B4E10268DFFD000136557 /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		520B4E11268DFFD000136557 /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		520B4E14268DFFE800136557 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		520B4E15268DFFE800136557 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		520D183126835B520039C63A /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
 		520D183226835B520039C63A /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
 		520D1835268364AA0039C63A /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -115,6 +133,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520B4DF8268DE41B00136557 /* MapPrice */ = {
+			isa = PBXGroup;
+			children = (
+				520B4DF9268DE43600136557 /* MapPrice.h */,
+				520B4DFA268DE43600136557 /* MapPrice.m */,
+			);
+			path = MapPrice;
+			sourceTree = "<group>";
+		};
+		520B4DFD268DF74900136557 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				520B4DFF268DF83300136557 /* LocationService.h */,
+				520B4E00268DF83300136557 /* LocationService.m */,
+			);
+			path = LocationService;
+			sourceTree = "<group>";
+		};
+		520B4E03268DFECF00136557 /* MapScreen */ = {
+			isa = PBXGroup;
+			children = (
+				520B4E04268DFEF900136557 /* Builder */,
+				520B4E07268DFF6800136557 /* Presenter */,
+				520B4E05268DFEFF00136557 /* View */,
+			);
+			path = MapScreen;
+			sourceTree = "<group>";
+		};
+		520B4E04268DFEF900136557 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				520B4E08268DFFA100136557 /* MapViewBuilder.h */,
+				520B4E09268DFFA100136557 /* MapViewBuilder.m */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		520B4E05268DFEFF00136557 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				520B4E06268DFF1000136557 /* Controller */,
+				520B4E10268DFFD000136557 /* MapView.h */,
+				520B4E11268DFFD000136557 /* MapView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		520B4E06268DFF1000136557 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				520B4E14268DFFE800136557 /* MapViewController.h */,
+				520B4E15268DFFE800136557 /* MapViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		520B4E07268DFF6800136557 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				520B4E0C268DFFB900136557 /* MapViewPresenter.h */,
+				520B4E0D268DFFB900136557 /* MapViewPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		520D182D26835A630039C63A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +222,7 @@
 		520D182F26835A990039C63A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				520B4DFD268DF74900136557 /* LocationService */,
 				526681B1268B570D00EF20AD /* ImageDownloader */,
 				523D1D822688F64200C40B90 /* APIManager */,
 				520D182E26835A860039C63A /* DataManager */,
@@ -149,6 +233,7 @@
 		520D183026835AD90039C63A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				520B4DF8268DE41B00136557 /* MapPrice */,
 				52654E6A268A73C100017DB3 /* Ticket */,
 				520D183D268385A60039C63A /* Country */,
 				520D183E268385BB0039C63A /* City */,
@@ -240,6 +325,7 @@
 				5238434D267F5A9500216B81 /* MainScreen */,
 				52297025267FCB8F002B2765 /* PlaceScreen */,
 				52654E48268A61EF00017DB3 /* TicketScreen */,
+				520B4E03268DFECF00136557 /* MapScreen */,
 			);
 			path = ticketSearch;
 			sourceTree = "<group>";
@@ -548,11 +634,15 @@
 				52384333267F396400216B81 /* AppDelegate.m in Sources */,
 				520D183326835B520039C63A /* Country.m in Sources */,
 				526681AF268B10FE00EF20AD /* TicketCellModelFactory.m in Sources */,
+				520B4E0A268DFFA100136557 /* MapViewBuilder.m in Sources */,
 				52384344267F396500216B81 /* main.m in Sources */,
 				52297029267FCBD8002B2765 /* PlaceViewController.m in Sources */,
+				520B4E0E268DFFB900136557 /* MapViewPresenter.m in Sources */,
+				520B4E16268DFFE800136557 /* MapViewController.m in Sources */,
 				520D183B268378E30039C63A /* Airport.m in Sources */,
 				5242AEFF26812689000458F9 /* PlaceViewBuilder.m in Sources */,
 				52384336267F396400216B81 /* SceneDelegate.m in Sources */,
+				520B4E12268DFFD000136557 /* MapView.m in Sources */,
 				5242AEF62681042C000458F9 /* MainViewPresenter.m in Sources */,
 				5242AEFB2681193C000458F9 /* MainViewBuilder.m in Sources */,
 				5238435D267F7EAB00216B81 /* AppStartManager.m in Sources */,
@@ -562,10 +652,12 @@
 				526681B4268B572500EF20AD /* ImageDownloader.m in Sources */,
 				52B21972267FAB83005EB7A1 /* MainView.m in Sources */,
 				52654E5B268A6A5A00017DB3 /* TicketViewBuilder.m in Sources */,
+				520B4DFB268DE43600136557 /* MapPrice.m in Sources */,
 				525F73B52686225200018826 /* PlaceTableViewCell.m in Sources */,
 				520D1844268385F10039C63A /* DataManager.m in Sources */,
 				520D1837268364AA0039C63A /* City.m in Sources */,
 				5242AF042681271A000458F9 /* PlaceViewPresenter.m in Sources */,
+				520B4E01268DF83300136557 /* LocationService.m in Sources */,
 				52654E6D268A73DD00017DB3 /* Ticket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

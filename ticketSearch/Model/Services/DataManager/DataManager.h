@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadData;
 - (City *)getCityForIATA:(NSString *)iata;
+- (City *)getCityForLocation:(CLLocation *)location;
 
 @end
 

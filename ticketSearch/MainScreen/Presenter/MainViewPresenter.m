@@ -7,6 +7,7 @@
 
 #import "MainViewPresenter.h"
 #import "PlaceViewBuilder.h"
+#import "MapViewBuilder.h"
 #import "TicketViewBuilder.h"
 #import "SearchRequest.h"
 #import "APIManager.h"
@@ -16,6 +17,7 @@
 @property (nonatomic) SearchRequest searchRequest;
 
 @end
+
 
 @implementation MainViewPresenter
 
@@ -43,6 +45,13 @@
 	}];
 }
 
+-(void)openMapView {
+
+	UIViewController *viewController = [MapViewBuilder build];
+	[self->_viewInput.navigationController pushViewController:viewController animated:YES];
+
+}
+
 -(void)requestData {
 
 	[_viewInput showActivityIndicator:YES];
@@ -61,6 +70,7 @@
 		[self->_viewInput showActivityIndicator:NO];
 	}];
 }
+
 
 //MARK: - Deinitialisers
 
@@ -83,6 +93,11 @@
 - (void)viewDidTapSearchButton {
 
 	[self openTicketView];
+}
+
+- (void)viewDidTapSearchMapButton {
+
+	[self openMapView];
 }
 
 - (void)viewRequestData {
