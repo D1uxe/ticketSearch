@@ -66,3 +66,6 @@
 "notification_title" = "Напоминание о билете";
 "notification_success" = "Успешно";
 "notification_success_describe" = "Уведомление будет отправлено";
+
+
+"currency" = "Руб.";

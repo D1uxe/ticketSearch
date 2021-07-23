@@ -364,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				5238434B267F5A4F00216B81 /* Core */,
-				52F541EA26A17CEE00E7635F /* Helper */,
 				52384350267F5C9400216B81 /* Resources */,
 				520D182D26835A630039C63A /* Model */,
 				527D54D0269CA7F900D34B88 /* OnboardScreen */,
@@ -696,6 +695,7 @@
 		52F541F026A1816E00E7635F /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				52F541EA26A17CEE00E7635F /* Helper */,
 				52F541F726A181AC00E7635F /* Localizable.strings */,
 				52F5420126A1C59000E7635F /* InfoPlist.strings */,
 			);

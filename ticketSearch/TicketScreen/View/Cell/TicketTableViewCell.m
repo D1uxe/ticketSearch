@@ -142,6 +142,7 @@
 
 	_favoriteButton.tintColor = (model.isFavorite) ? UIColor.systemBlueColor : UIColor.lightGrayColor;
 
+	_price = model.price;
 	_cellModel = model;
 }
 

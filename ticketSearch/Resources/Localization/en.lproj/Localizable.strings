@@ -66,3 +66,6 @@
 "notification_title" = "Ticket reminder";
 "notification_success" = "Successfully";
 "notification_success_describe" = "The notification will be sent";
+
+
+"currency" = "Rub";
