@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainViewController : UIViewController <MainViewInput>
 
-@property(nonatomic, strong) MainViewPresenter* presenter;
+@property(nonatomic, strong) id<MainViewOutput> presenter;
 
--(instancetype)initWithPresenter:(MainViewPresenter *) presenter;
+-(instancetype)initWithPresenter:(id<MainViewOutput>) presenter;
 
 @end
 

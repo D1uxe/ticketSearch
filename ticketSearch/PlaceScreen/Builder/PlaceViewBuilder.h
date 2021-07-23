@@ -7,13 +7,14 @@
 
 #import <UIKit/UIKit.h>
 #import "PlaceViewPresenter.h"
+#import "MainViewPresenter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PlaceViewBuilder : NSObject
 
-+(UIViewController<PlaceViewInput>*)build;
-
++(UIViewController<PlaceViewInput>*)buildWith: (PlaceType)placeType withPresenter:(id<MainViewOutput>)mainPresenter;
+//+(UIViewController<PlaceViewInput>*)build;
 @end
 
 NS_ASSUME_NONNULL_END

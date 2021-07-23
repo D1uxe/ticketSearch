@@ -7,14 +7,16 @@
 
 #import <UIKit/UIKit.h>
 #import "PlaceViewPresenter.h"
+#import "DataManager.h"
+#import "PlaceType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlaceViewController : UIViewController <PlaceViewInput>
+@interface PlaceViewController : UIViewController <PlaceViewInput, UITableViewDataSource, UITableViewDelegate>
 
-@property(nonatomic, strong) PlaceViewPresenter *presenter;
+@property(nonatomic, strong) id<PlaceViewOutput> presenter;
 
--(instancetype)initWithPresenter:(PlaceViewPresenter *) presenter;
+-(instancetype)initWithPresenter:(id<PlaceViewOutput>)presenter with:(PlaceType)placeType; 
 
 @end
 
