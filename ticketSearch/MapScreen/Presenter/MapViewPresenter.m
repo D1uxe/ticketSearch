@@ -18,18 +18,11 @@
 
 @implementation MapViewPresenter
 
-//MARK: - Initialisers
+-(void)getTickets {
 
-- (instancetype)init
-{
-	self = [super init];
-	if (self) {
+	_locationService = [LocationService new];
 
-		_locationService = [LocationService new];
-
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
-	}
-	return self;
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
 }
 
 - (void)updateCurrentLocation:(NSNotification *)notification {
@@ -75,5 +68,9 @@
 
 //MARK: ViewOutput protocol
 
+-(void)viewRequestTickets{
+
+	[self getTickets];
+}
 
 @end

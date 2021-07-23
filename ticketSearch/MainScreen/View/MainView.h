@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *departureButton;
 @property (nonatomic, strong) UIButton *arrivalButton;
 @property (nonatomic, strong) UIButton *searchButton;
-@property (nonatomic, strong) UIButton *searchMapButton;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
 - (instancetype)init;

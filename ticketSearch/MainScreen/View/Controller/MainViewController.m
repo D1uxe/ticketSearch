@@ -29,13 +29,6 @@
 	return self;
 }
 
-//MARK: - Private properties
-
-// Странно почему геттер не срабатывает??
--(MainView*) mainView {
-	return (MainView*) self.view;
-}
-
 
 //MARK: Life cycle
 
@@ -51,7 +44,6 @@
 	[_mainView.departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 	[_mainView.arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 	[_mainView.searchButton addTarget:self action:@selector(searchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
-	[_mainView.searchMapButton addTarget:self action:@selector(searchMapButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)loadView {
@@ -72,10 +64,7 @@
 	[self.presenter viewDidTapSearchButton];
 }
 
-- (void)searchMapButtonDidTap:(UIButton *)sender {
 
-	[self.presenter viewDidTapSearchMapButton];
-}
 
 //MARK: - ViewInput protocol
 

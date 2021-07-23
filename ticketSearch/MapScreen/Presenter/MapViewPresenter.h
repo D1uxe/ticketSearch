@@ -20,6 +20,7 @@
 // Протокол связи View-to-Presenter
 @protocol MapViewOutput <NSObject>
 
+-(void)viewRequestTickets;
 
 @end
 
